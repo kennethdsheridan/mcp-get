@@ -1,6 +1,16 @@
 # MCP-GET
 
-A flexible Model Context Protocol server for accessing multiple task management and productivity services. MCP-GET provides a unified interface for AI assistants to interact with popular workplace tools through a consistent, extensible architecture.
+A flexible [Model Context Protocol](https://modelcontextprotocol.io/) server for accessing multiple task management and productivity services. MCP-GET provides a unified interface for AI assistants to interact with popular workplace tools through a consistent, extensible architecture.
+
+## About the Model Context Protocol
+
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard that enables AI assistants to securely connect to external data sources and tools. Developed by [Anthropic](https://anthropic.com/), MCP provides a standardized way for AI systems to access real-time information and perform actions across different services.
+
+**Key Resources:**
+- [MCP Official Documentation](https://modelcontextprotocol.io/)
+- [Anthropic MCP Guide](https://docs.anthropic.com/en/docs/build-with-claude/computer-use)
+- [MCP Specification](https://spec.modelcontextprotocol.io/)
+- [MCP SDK Documentation](https://github.com/modelcontextprotocol/sdk)
 
 ## Setup
 
@@ -12,22 +22,27 @@ A flexible Model Context Protocol server for accessing multiple task management 
 2. Configure your services in the `.env` file:
    ```bash
    # Linear (currently supported)
+   # Get your API key: https://linear.app/settings/api
    LINEAR_API_KEY=your_linear_api_key_here
    LINEAR_ENABLED=true
    
    # Notion
+   # Create integration: https://developers.notion.com/docs/create-a-notion-integration
    NOTION_API_KEY=your_notion_integration_token
    NOTION_ENABLED=true
    
    # Slack
+   # Create app: https://api.slack.com/apps
    SLACK_BOT_TOKEN=xoxb-your-slack-bot-token
    SLACK_ENABLED=true
    
    # GitHub
+   # Generate token: https://github.com/settings/tokens
    GITHUB_API_KEY=your_github_personal_access_token
    GITHUB_ENABLED=true
    
    # Plaid
+   # Get credentials: https://dashboard.plaid.com/developers/keys
    PLAID_CLIENT_ID=your_plaid_client_id
    PLAID_SECRET=your_plaid_secret_key
    PLAID_ENV=sandbox  # or development, production
@@ -91,7 +106,12 @@ Each service implements the same interface:
 MCP-GET integrates seamlessly with AI assistants that support the Model Context Protocol:
 
 ### Claude Code
-Add this server to your Claude Code MCP configuration to access multiple productivity services directly in your conversations.
+[Claude Code](https://claude.ai/code) is Anthropic's official CLI tool that supports MCP servers. Add MCP-GET to your Claude Code configuration to access multiple productivity services directly in your conversations.
+
+**Claude Code Resources:**
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [Claude Code Installation Guide](https://docs.anthropic.com/en/docs/claude-code/quickstart)
+- [Claude Code MCP Integration](https://docs.anthropic.com/en/docs/claude-code/mcp)
 
 ### Configuration Example
 ```json
@@ -103,12 +123,20 @@ Add this server to your Claude Code MCP configuration to access multiple product
       "env": {
         "LINEAR_API_KEY": "your_linear_api_key",
         "GITHUB_API_KEY": "your_github_token",
-        "NOTION_API_KEY": "your_notion_integration_token"
+        "NOTION_API_KEY": "your_notion_integration_token",
+        "SLACK_BOT_TOKEN": "your_slack_bot_token",
+        "PLAID_CLIENT_ID": "your_plaid_client_id",
+        "PLAID_SECRET": "your_plaid_secret"
       }
     }
   }
 }
 ```
+
+### Other Compatible AI Assistants
+- [Cline](https://github.com/cline/cline) - VS Code extension with MCP support
+- [Continue](https://continue.dev/) - AI coding assistant with MCP integration
+- Custom implementations using the [MCP SDK](https://github.com/modelcontextprotocol/sdk)
 
 ### Benefits
 - **Unified Interface**: Consistent command patterns across all services
@@ -125,6 +153,11 @@ Add this server to your Claude Code MCP configuration to access multiple product
 5. Add configuration in `config.js`
 
 See `services/linear.js` for a complete example.
+
+**Development Resources:**
+- [MCP Server Development Guide](https://modelcontextprotocol.io/docs/concepts/servers)
+- [Service Integration Examples](https://github.com/modelcontextprotocol/servers)
+- [MCP SDK TypeScript Documentation](https://github.com/modelcontextprotocol/sdk)
 
 ## Supported Services
 
@@ -176,3 +209,29 @@ We welcome contributions to expand service support and improve functionality. To
 - Implement proper error handling and logging
 - Maintain consistent API response formats
 - Include comprehensive JSDoc documentation
+
+## API Documentation
+
+### Service API References
+- [Linear API Documentation](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)
+- [Notion API Documentation](https://developers.notion.com/reference/intro)
+- [Slack Web API Documentation](https://api.slack.com/web)
+- [GitHub REST API Documentation](https://docs.github.com/en/rest)
+- [Plaid API Documentation](https://plaid.com/docs/api/)
+
+### MCP Development Resources
+- [MCP Server Development Guide](https://modelcontextprotocol.io/docs/concepts/servers)
+- [MCP SDK Reference](https://github.com/modelcontextprotocol/sdk)
+- [MCP Community Examples](https://github.com/modelcontextprotocol/servers)
+- [Anthropic MCP Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/computer-use)
+
+## Support and Community
+
+- **Issues**: Report bugs and request features on [GitHub Issues](https://github.com/kennethdsheridan/mcp-get/issues)
+- **Discussions**: Join the conversation in [GitHub Discussions](https://github.com/kennethdsheridan/mcp-get/discussions)
+- **MCP Community**: Connect with other developers in the [MCP Discord](https://discord.gg/modelcontextprotocol)
+- **Anthropic Support**: Get help with Claude Code at [Anthropic Support](https://support.anthropic.com/)
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
