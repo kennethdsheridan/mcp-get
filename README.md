@@ -27,20 +27,11 @@ A flexible Model Context Protocol server for accessing multiple task management 
    GITHUB_API_KEY=your_github_personal_access_token
    GITHUB_ENABLED=true
    
-   # Jira
-   JIRA_API_KEY=your_jira_api_token
-   JIRA_BASE_URL=https://yourcompany.atlassian.net
-   JIRA_EMAIL=your.email@company.com
-   JIRA_ENABLED=true
-   
-   # Asana
-   ASANA_API_KEY=your_asana_personal_access_token
-   ASANA_ENABLED=true
-   
-   # Trello
-   TRELLO_API_KEY=your_trello_api_key
-   TRELLO_TOKEN=your_trello_token
-   TRELLO_ENABLED=true
+   # Plaid
+   PLAID_CLIENT_ID=your_plaid_client_id
+   PLAID_SECRET=your_plaid_secret_key
+   PLAID_ENV=sandbox  # or development, production
+   PLAID_ENABLED=true
    ```
 
 3. Run the server:
@@ -70,20 +61,10 @@ A flexible Model Context Protocol server for accessing multiple task management 
 - `github_get_issue_details`: Get detailed information about a specific issue
 - `github_search_issues`: Search for issues by title or description
 
-### Jira Service (Planned)
-- `jira_get_my_issues`: Get recent issues assigned to you
-- `jira_get_issue_details`: Get detailed information about a specific issue
-- `jira_search_issues`: Search for issues by title or description
-
-### Asana Service (Planned)
-- `asana_get_my_tasks`: Get recent tasks assigned to you
-- `asana_get_task_details`: Get detailed information about a specific task
-- `asana_search_tasks`: Search for tasks by title or description
-
-### Trello Service (Planned)
-- `trello_get_my_cards`: Get recent cards assigned to you
-- `trello_get_card_details`: Get detailed information about a specific card
-- `trello_search_cards`: Search for cards by title or description
+### Plaid Service (Planned)
+- `plaid_get_accounts`: Get linked bank accounts and balances
+- `plaid_get_transactions`: Get recent transactions across accounts
+- `plaid_search_transactions`: Search transactions by merchant, amount, or description
 
 ## Architecture
 
@@ -154,9 +135,7 @@ See `services/linear.js` for a complete example.
 - **Notion**: Database queries, page management, and content search
 - **Slack**: Message retrieval, thread navigation, and workspace search
 - **GitHub**: Issues, pull requests, and repository management
-- **Jira**: Ticket management, sprint planning, and project tracking
-- **Asana**: Task management, project coordination, and team collaboration
-- **Trello**: Card management, board organization, and workflow tracking
+- **Plaid**: Banking data access, transaction history, and account management
 
 ## Development Roadmap
 
@@ -165,7 +144,7 @@ MCP-GET is designed to become the definitive MCP server for workplace productivi
 ### Phase 1: Core Services (Current)
 - Linear integration (Complete)
 - GitHub Issues and Pull Requests
-- Jira Cloud and Server
+- Plaid financial data access
 
 ### Phase 2: Communication Platforms
 - Slack workspace integration
@@ -177,10 +156,10 @@ MCP-GET is designed to become the definitive MCP server for workplace productivi
 - Confluence space management
 - Obsidian vault integration
 
-### Phase 4: Project Management
-- Asana project and task management
-- Trello board and card operations
-- Monday.com workflow automation
+### Phase 4: Financial & Analytics
+- Enhanced Plaid transaction analysis
+- Banking workflow automation
+- Financial reporting and insights
 
 ## Contributing
 
