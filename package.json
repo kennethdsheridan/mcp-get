@@ -1,0 +1,22 @@
+{
+  "name": "mcp-get",
+  "version": "1.0.0",
+  "description": "A flexible MCP server for accessing multiple task management and productivity services",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "@linear/sdk": "^17.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": ["mcp", "linear", "server", "task-management", "productivity", "multi-service"],
+  "author": "Kenny Sheridan",
+  "license": "MIT"
+}
